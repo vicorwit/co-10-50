@@ -32,12 +32,12 @@
             总流量(GB)
             <a-tooltip>
                 <template slot="title">
-                    0 表示不限制
+                    最多 50 GB
                 </template>
                 <a-icon type="question-circle" theme="filled"></a-icon>
             </a-tooltip>
         </span>
-        <a-input-number v-model="dbInbound.totalGB" :min="30" :max="50" :number="50"></a-input-number>
+        <a-input-number v-model="dbInbound.totalGB" :min="30" :max="50" :number="50"  :value="50"></a-input-number>
     </a-form-item>
     <a-form-item>
         <span slot="label">
