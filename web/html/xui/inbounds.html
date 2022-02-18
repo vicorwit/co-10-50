@@ -35,7 +35,7 @@
                                 <a-tag color="green">[[ sizeFormat(total.up + total.down) ]]</a-tag>
                             </a-col>
                             <a-col :xs="24" :sm="24" :lg="12">
-                                入站数量：
+                                用户数：
                                 <a-tag color="green">[[ dbInbounds.length ]]</a-tag>
                             </a-col>
                         </a-row>
@@ -43,7 +43,7 @@
                 </transition>
                 <transition name="list" appear>
                     <a-card hoverable>
-                        <div slot="title">
+                        <div slot="title" v-if="dbInbounds.length < 5">
                             <a-button type="primary" icon="plus" @click="openAddInbound"></a-button>
                         </div>
 <!--                        <a-input v-model="searchKey" placeholder="搜索" autofocus style="max-width: 300px"></a-input>-->
@@ -224,9 +224,6 @@
                     case "edit":
                         this.openEditInbound(dbInbound);
                         break;
-                    case "resetTraffic":
-                        this.resetTraffic(dbInbound);
-                        break;
                     case "delete":
                         this.delInbound(dbInbound);
                         break;
@@ -292,20 +289,6 @@
                     sniffing: inbound.canSniffing() ? inbound.sniffing.toString() : '{}',
                 };
                 await this.submit(`/xui/inbound/update/${dbInbound.id}`, data, inModal);
-            },
-            resetTraffic(dbInbound) {
-                this.$confirm({
-                    title: '重置流量',
-                    content: '确定要重置流量吗?',
-                    okText: '重置',
-                    cancelText: '取消',
-                    onOk: () => {
-                        const inbound = dbInbound.toInbound();
-                        dbInbound.up = 0;
-                        dbInbound.down = 0;
-                        this.updateInbound(inbound, dbInbound);
-                    },
-                });
             },
             delInbound(dbInbound) {
                 this.$confirm({
