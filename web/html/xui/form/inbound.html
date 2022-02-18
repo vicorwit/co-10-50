@@ -38,11 +38,7 @@
             </a-tooltip>
         </span>
         <a-input-number v-model="dbInbound.totalGB" readonly>50</a-input-number>
-        data:  () => {
-            return {
-              dbInbound.totalGB: 33 // Your default value
-             }
-            }
+        
     </a-form-item>
     <a-form-item>
         <span slot="label">
@@ -58,6 +54,14 @@
                        v-model="dbInbound._expiryTime" style="width: 300px;"></a-date-picker>
     </a-form-item>
 </a-form>
+
+<script>
+    data:  () => {
+            return {
+              dbInbound.totalGB: 33 // Your default value
+             }
+            }
+</script>
 
 <!-- vmess settings -->
 <template v-if="inbound.protocol === Protocols.VMESS">
