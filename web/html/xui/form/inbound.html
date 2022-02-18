@@ -37,7 +37,7 @@
                 <a-icon type="question-circle" theme="filled"></a-icon>
             </a-tooltip>
         </span>
-        <a-input v-model="dbInbound.totalGB" :value="50">50</a-input>
+        <a-input type="number" v-model="dbInbound.totalGB" value="50" readonly>50</a-input>
     </a-form-item>
     <a-form-item>
         <span slot="label">
