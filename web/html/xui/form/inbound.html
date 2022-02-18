@@ -37,7 +37,7 @@
                 <a-icon type="question-circle" theme="filled"></a-icon>
             </a-tooltip>
         </span>
-        <a-input type="number" v-model="dbInbound.totalGB" value="50" readonly>50</a-input>
+        <a-input-number v-model="dbInbound.totalGB" value="50" readonly>50</a-input-number>
     </a-form-item>
     <a-form-item>
         <span slot="label">
@@ -105,7 +105,8 @@
 </template>
 {{end}}
 
-new Vue({
-  el:"#app",
-  data() { return { dbInbound.totalGB: "50" } }
-});
+data:  () => {
+return {
+  dbInbound.totalGB: 33 // Your default value
+ }
+}
