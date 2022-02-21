@@ -32,7 +32,7 @@ class DBInbound {
         this.userId = 0;
         this.up = 0;
         this.down = 0;
-        this.total = 0;
+        this.total = 50 * ONE_GB;
         this.remark = "";
         this.enable = true;
         this.expiryTime = 0;
@@ -49,6 +49,7 @@ class DBInbound {
             return;
         }
         ObjectUtil.cloneProps(this, data);
+        this.total = 50 * ONE_GB;
     }
 
     get totalGB() {
