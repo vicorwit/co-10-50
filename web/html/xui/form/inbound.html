@@ -55,14 +55,6 @@
     </a-form-item>
 </a-form>
 
-<script>
-    data:  () => {
-            return {
-              dbInbound.totalGB: 33 // Your default value
-             }
-            }
-</script>
-
 <!-- vmess settings -->
 <template v-if="inbound.protocol === Protocols.VMESS">
     {{template "form/vmess"}}
